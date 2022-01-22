@@ -44,6 +44,20 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
     print("hint=${hint}");
   }
 
+  String? answer;
+  Future<void> _getAnswer() async {
+    print("getanswer called");
+
+    print("id=${widget.id}");
+    Response responseAnswer = await get(
+        Uri.parse('https://mat.isro123.repl.co/getans/${widget.id}'));
+    setState(() {
+      answer = responseAnswer.body;
+      answer = answer!.replaceAll("\"", "");
+      answer = answer!.trim();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,19 +71,44 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
         centerTitle: true,
         backgroundColor: Colors.brown[400],
       ),
-      body:Container(
-        width: 500,
-        height: 600,
-        child:
-        //Image.network("https://cdn.discordapp.com/attachments/923096091501666304/934304253122609152/Screenshot_2022-01-22_at_10.01.26_AM.png"),
-        hint != null
-            ? Image.network(
-          hint!,
-          fit: BoxFit.cover,
-          width : double.infinity,
-        )
-            : Text('null', textAlign: TextAlign.center,),
-        alignment: Alignment.center,
+      body:
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            width: 200,
+            height: 300,
+            child:
+            //Image.network("https://cdn.discordapp.com/attachments/923096091501666304/934304253122609152/Screenshot_2022-01-22_at_10.01.26_AM.png"),
+            hint != null
+                ? Image.network(
+              hint!,
+              fit: BoxFit.cover,
+              width : double.infinity,
+            )
+                : Text('null', textAlign: TextAlign.center,),
+            alignment: Alignment.center,
+          ),
+          ElevatedButton(
+            onPressed: _getAnswer,
+            child: Text('View Complete Answer')
+          ),
+          Container(
+            width: 300,
+            height: 400,
+            child:
+            //Image.network("https://cdn.discordapp.com/attachments/923096091501666304/934304253122609152/Screenshot_2022-01-22_at_10.01.26_AM.png"),
+            answer != null
+                ? Image.network(
+              answer!,
+              fit: BoxFit.cover,
+              width : double.infinity,
+            )
+                : Text('null', textAlign: TextAlign.center,),
+            alignment: Alignment.center,
+          ),
+        ],
       ),
     );
   }
