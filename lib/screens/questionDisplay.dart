@@ -1,3 +1,4 @@
+import 'package:codefesttry2/screens/answer.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -43,6 +44,12 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
     });
     print("hint=${hint}");
   }
+
+  void _showAnswerScreen(){
+    print ("id = ${widget.id}");
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplayAnswer(id: widget.id)));
+  }
+
 
   String? answer;
   Future<void> _getAnswer() async {
@@ -91,7 +98,7 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
             alignment: Alignment.center,
           ),
           ElevatedButton(
-            onPressed: _getAnswer,
+            onPressed: _showAnswerScreen,
             child: Text('View Complete Answer')
           ),
           Container(
