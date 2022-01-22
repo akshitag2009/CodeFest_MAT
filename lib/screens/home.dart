@@ -98,7 +98,13 @@ class HomeState extends State<Home> {
               fit: BoxFit.cover,
               width : double.infinity,
             )
-                : Text('Your question will appear here.', textAlign: TextAlign.center,),
+                : Text(
+              'Your question will appear here.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
             alignment: Alignment.center,
           ),
           ElevatedButton(
