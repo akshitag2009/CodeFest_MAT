@@ -59,7 +59,7 @@ class HomeState extends State<Home> {
         }
       }
     }
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplayQuestion(id: 'student90')));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplayQuestion(id: id!)));
     // Navigator.pushNamed(context, '/questionDisplay');
   }
 
