@@ -50,23 +50,21 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('MAT Help'),
         titleTextStyle: TextStyle(
-          fontSize: 30,
-          color: Colors.white70,
-          fontFamily: 'IndieFlower',
+          fontSize: 25,
         ),
         centerTitle: true,
-        backgroundColor: Colors.brown[400],
+
       ),
       body:
       Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: 200,
-            height: 300,
+            width: 400,
+            height: 500,
             child:
             //Image.network("https://cdn.discordapp.com/attachments/923096091501666304/934304253122609152/Screenshot_2022-01-22_at_10.01.26_AM.png"),
             hint != null
@@ -75,12 +73,23 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
               fit: BoxFit.cover,
               width : double.infinity,
             )
-                : Text('null', textAlign: TextAlign.center,),
+                : Text(
+              'Loading your hint',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
             alignment: Alignment.center,
           ),
           ElevatedButton(
             onPressed: _showAnswerScreen,
-            child: Text('View Complete Answer')
+            child: Text(
+                'View Complete Answer',
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
           ),
         ],
       ),

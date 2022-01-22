@@ -68,20 +68,29 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('MAT help'),
         titleTextStyle: TextStyle(
-          fontSize: 30,
-          color: Colors.white70,
-          fontFamily: 'IndieFlower',
+          fontSize: 25,
+          //fontFamily: 'IndieFlower',
         ),
         centerTitle: true,
-        backgroundColor: Colors.brown[400],
+        //backgroundColor: Colors.brown[400],
       ),
       body:
       Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          ElevatedButton(
+            onPressed:_takePicture,
+            child: Text(
+              'Take picture of question',
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
+          ),
           Container(
-            width: 300,
+            width: 400,
             height: 500,
             child: _storedImage != null
                 ? Image.file(
@@ -93,19 +102,13 @@ class HomeState extends State<Home> {
             alignment: Alignment.center,
           ),
           ElevatedButton(
-            onPressed:_takePicture,
+            onPressed: _getText,
             child: Text(
-              'Help Me',
+                'Show me hint',
               style: TextStyle(
-                fontFamily: 'IndieFlower',
                 fontSize: 25,
-                color: Colors.white70,
               ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: _getText,
-            child: Text('Search for Answers'),
           ),
         ],
       ),

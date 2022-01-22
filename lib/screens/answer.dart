@@ -15,8 +15,6 @@ class DisplayAnswer extends StatefulWidget {
   _DisplayAnswerState createState() => _DisplayAnswerState();
 }
 
-
-
 class _DisplayAnswerState extends State<DisplayAnswer> {
 
   @override
@@ -44,24 +42,22 @@ class _DisplayAnswerState extends State<DisplayAnswer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: Text('MAT help'),
         titleTextStyle: TextStyle(
-          fontSize: 30,
-          color: Colors.white70,
-          fontFamily: 'IndieFlower',
+          fontSize: 25,
         ),
         centerTitle: true,
-        backgroundColor: Colors.brown[400],
+
       ),
       body:
       Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
 
           Container(
-            width: 300,
-            height: 400,
+            width: 400,
+            height: 500,
             child:
             //Image.network("https://cdn.discordapp.com/attachments/923096091501666304/934304253122609152/Screenshot_2022-01-22_at_10.01.26_AM.png"),
             answer != null
@@ -70,7 +66,13 @@ class _DisplayAnswerState extends State<DisplayAnswer> {
               fit: BoxFit.cover,
               width : double.infinity,
             )
-                : Text('null', textAlign: TextAlign.center,),
+                : Text(
+              'Loading complete answer',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
             alignment: Alignment.center,
           ),
         ],
