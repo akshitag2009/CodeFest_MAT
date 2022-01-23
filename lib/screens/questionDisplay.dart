@@ -50,7 +50,7 @@ class _DisplayQuestionState extends State<DisplayQuestion> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MAT Help'),
+        title: Text('Cloud Teacher'),
         titleTextStyle: TextStyle(
           fontSize: 25,
         ),

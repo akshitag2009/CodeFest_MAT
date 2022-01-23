@@ -38,6 +38,7 @@ class HomeState extends State<Home> {
 
     String? text = visionText.text;
     print('AKS text defined');
+    bool isFound=false;
     for (TextBlock block in visionText.blocks) {
 
       final Rect? boundingBox = block.boundingBox;
@@ -46,27 +47,40 @@ class HomeState extends State<Home> {
       final List<RecognizedLanguage> languages = block.recognizedLanguages;
 
       for (TextLine line in block.lines) {
-        // Same getters as TextBlock
-        for (TextElement element in line.elements) {
-          // Same getters as TextBlock
-          print("AKS ${element.text}");
 
-          if (element.text!.contains('student')) {
-            id = 'student90';
-            print("id=${id}");
-          } else if (element.text!.contains('retailer')) {
-            id = 'retailer225';
-            print("id=${id}");
-          } else if (element.text!.contains('pens')) {
-            id = 'pens10';
-            print("id=${id}");
-          }
-          /*if (element.text == 'student') {
-            id = 'student90';
+          // Same getters as TextBlock
+          for (TextElement element in line.elements) {
+
+            // Same getters as TextBlock
+            print("AKS ${element.text}");
+            print("before FOR Loop isfound=${isFound}");
+            if (element.text!.contains('student') && !isFound) {
+              id = 'student90';
+              print("id=${id}");
+
+              isFound = true;
+              print("isfound=${isFound}");
+              break;
+            } else if (element.text!.contains('retailer') && !isFound) {
+              id = 'retailer225';
+              print("id=${id}");
+              isFound = true;
+              print("isfound=${isFound}");
+              break;
+            } else if (element.text!.contains('pens') && !isFound) {
+              id = 'pens10';
+              print("id=${id}");
+              isFound = true;
+              print("isfound=${isFound}");
+              break;
+            }
+            /*if (element.text == 'student') {
+            id = 'student90'
             print("id=${id}");
           }*/
 
-        }
+          }
+
       }
     }
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => DisplayQuestion(id: id!)));

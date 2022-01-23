@@ -42,7 +42,7 @@ class _DisplayAnswerState extends State<DisplayAnswer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MAT help'),
+        title: Text('Cloud Teacher'),
         titleTextStyle: TextStyle(
           fontSize: 25,
         ),
