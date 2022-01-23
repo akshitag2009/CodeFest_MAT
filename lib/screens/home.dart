@@ -51,10 +51,20 @@ class HomeState extends State<Home> {
           // Same getters as TextBlock
           print("AKS ${element.text}");
 
-          if (element.text == 'student') {
+          if (element.text!.contains('student')) {
             id = 'student90';
             print("id=${id}");
+          } else if (element.text!.contains('retailer')) {
+            id = 'retailer225';
+            print("id=${id}");
+          } else if (element.text!.contains('pens')) {
+            id = 'pens10';
+            print("id=${id}");
           }
+          /*if (element.text == 'student') {
+            id = 'student90';
+            print("id=${id}");
+          }*/
 
         }
       }
@@ -68,7 +78,7 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MAT help'),
+        title: Text('Cloud Teacher'),
         titleTextStyle: TextStyle(
           fontSize: 25,
           //fontFamily: 'IndieFlower',
@@ -85,7 +95,7 @@ class HomeState extends State<Home> {
             child: Text(
               'Take picture of question',
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 35,
               ),
             ),
           ),
